@@ -1,0 +1,3 @@
+source;share/lidar_camera_slam/environment/ament_prefix_path.sh
+source;share/lidar_camera_slam/environment/path.sh
+source;share/lidar_camera_slam/environment/pythonpath.sh
