@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- Start Gazebo with the test room -->
+  <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    <arg name="world_name" value="$(find lidar_camera_slam)/worlds/test_room.world"/>
+    <arg name="paused" value="false"/>
+    <arg name="use_sim_time" value="true"/>
+    <arg name="gui" value="true"/>
+    <arg name="headless" value="false"/>
+    <arg name="debug" value="false"/>
+  </include>
+
+  <!-- Spawn the robot -->
+  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find lidar_camera_slam)/urdf/robot.urdf'" />
+  <node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -model robot -x 0 -y 0 -z 0.1" />
+
+  <!-- Start RViz -->
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(find lidar_camera_slam)/rviz/slam.rviz" />
+
+  <!-- Start SLAM node -->
+  <node name="slam_node" pkg="lidar_camera_slam" type="slam_node" output="screen">
+    <param name="use_sim_time" value="true"/>
+  </node>
+</launch> 

@@ -1,0 +1,43 @@
+Panels:
+  - Class: rviz/Displays
+    Name: Displays
+    Property Tree Widget:
+      Expanded: true
+  - Class: rviz/Views
+    Name: Views
+    Property Tree Widget:
+      Expanded: true
+
+Displays:
+  - Name: Global Options
+    Class: rviz/GlobalOptions
+    Fixed Frame: map
+    Background Color: 48; 48; 48
+    Frame Rate: 30
+
+  - Name: Grid
+    Class: rviz/Grid
+    Cell Size: 1
+
+  - Name: LaserScan
+    Class: rviz/LaserScan
+    Topic: /scan
+    Alpha: 1
+    Color: 255; 0; 0
+    Size (m): 0.05
+
+  - Name: Camera
+    Class: rviz/Image
+    Topic: /camera/image_raw
+    Transport Hint: raw
+
+  - Name: TF
+    Class: rviz/TF
+    Enabled: true
+
+  - Name: Map
+    Class: rviz/Map
+    Topic: /map
+    Alpha: 0.75
+    Color Scheme: map
+
